@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl0bukr6fi36g"]
+
+[ext_resource type="Texture2D" uid="uid://doe2wx2pvhhau" path="res://assets/sprites/AND.png" id="1_p3jmo"]
+[ext_resource type="PackedScene" uid="uid://07k81lsmvgu7" path="res://assets/io/cin.tscn" id="2_rrmbe"]
+
+[node name="and" type="Node2D"]
+
+[node name="body" type="Sprite2D" parent="."]
+texture = ExtResource("1_p3jmo")
+
+[node name="io" type="Node" parent="."]
+
+[node name="in" type="Node" parent="io"]
+
+[node name="cin" parent="io/in" instance=ExtResource("2_rrmbe")]
+position = Vector2(-8, -5)
+
+[node name="cin2" parent="io/in" instance=ExtResource("2_rrmbe")]
+position = Vector2(-8, 5)
+
+[node name="out" type="Node" parent="io"]

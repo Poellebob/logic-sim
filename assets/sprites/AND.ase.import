@@ -1,0 +1,15 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://k6qob3tnrr8f"
+valid=false
+
+[deps]
+
+source_file="res://assets/sprites/AND.ase"
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

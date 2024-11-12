@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2w1wg8uyx65t"]
+
+[ext_resource type="Texture2D" uid="uid://f8qxt5rsi3vu" path="res://assets/sprites/NOT.png" id="1_lkj0v"]
+[ext_resource type="PackedScene" uid="uid://cl0bukr6fi36g" path="res://assets/And.tscn" id="2_b128g"]
+
+[node name="Master" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_lkj0v")
+centered = false
+
+[node name="and" parent="." instance=ExtResource("2_b128g")]
