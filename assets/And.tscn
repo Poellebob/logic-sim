@@ -1,9 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl0bukr6fi36g"]
+[gd_scene load_steps=4 format=3 uid="uid://cl0bukr6fi36g"]
 
 [ext_resource type="Texture2D" uid="uid://doe2wx2pvhhau" path="res://assets/sprites/AND.png" id="1_p3jmo"]
-[ext_resource type="PackedScene" uid="uid://07k81lsmvgu7" path="res://assets/io/cin.tscn" id="2_rrmbe"]
+[ext_resource type="PackedScene" uid="uid://07k81lsmvgu7" path="res://assets/io/connect_io.tscn" id="2_rrmbe"]
+
+[sub_resource type="GDScript" id="GDScript_ud66m"]
+script/source = "extends Node2D
+
+var input: Array[bool] = [false, false]
+
+signal wire_spawn_request(is_input: bool, source: Node2D)
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	get_io()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func get_io():
+	var tree = get_tree()
+	print_tree()
+"
 
 [node name="and" type="Node2D"]
+script = SubResource("GDScript_ud66m")
 
 [node name="body" type="Sprite2D" parent="."]
 texture = ExtResource("1_p3jmo")
@@ -12,10 +34,13 @@ texture = ExtResource("1_p3jmo")
 
 [node name="in" type="Node" parent="io"]
 
-[node name="cin" parent="io/in" instance=ExtResource("2_rrmbe")]
+[node name="io" parent="io/in" instance=ExtResource("2_rrmbe")]
 position = Vector2(-8, -5)
 
-[node name="cin2" parent="io/in" instance=ExtResource("2_rrmbe")]
+[node name="io2" parent="io/in" instance=ExtResource("2_rrmbe")]
 position = Vector2(-8, 5)
 
 [node name="out" type="Node" parent="io"]
+
+[node name="io" parent="io/out" instance=ExtResource("2_rrmbe")]
+position = Vector2(8, 0)
