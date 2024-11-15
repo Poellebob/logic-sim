@@ -28,7 +28,7 @@ func _process(_delta: float):
 		camera.position -= mouse_movement / camera.zoom
 	previous_mouse_position = current_mouse_position
 	
-	camera.zoom += Vector2.ONE * 0.5 * (int(Input.is_action_just_pressed(\"mouse_down\"))-int(Input.is_action_just_pressed(\"mouse_up\")))
+	camera.zoom += Vector2.ONE * 0.5 * (int(Input.is_action_just_pressed(\"mouse_up\"))-int(Input.is_action_just_pressed(\"mouse_down\")))
 	camera.zoom = clamp(camera.zoom, Vector2.ONE * 0.5, Vector2.ONE * 15)
 	
 	background_texrure.size = Vector2(get_viewport().size) / camera.zoom
